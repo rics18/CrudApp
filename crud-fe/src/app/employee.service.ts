@@ -28,4 +28,12 @@ export class EmployeeService {
   updateEmployee(employee: object): Observable<any> {
     return this.http.put(this.baseUrl + 'update' , employee);
   }
+
+  login(username: string, password: string): Observable<any> {
+    let loginObject = {
+      'username': username,
+      'password': password
+    };
+    return this.http.post(this.baseUrl + 'login', loginObject);
+  }
 }
